@@ -1,102 +1,134 @@
 # SDG-WAYSHELL-CONFIGS Migration Plan
 
-## 1. Implement Lifecycle Scripts
+## Directory Mapping
 
-All four root-level lifecycle scripts are **empty stubs** — must be implemented:
+| Source | Installed to |
+|--------|-------------|
+| `config/wayshellconf/` (22+ files) | `~/.config/SDG-WAYSHELL-CONFIGS/` (with subdirectory reorg) |
+| `tips/` | `~/.local/tips/SDG-WAYSHELL-CONFIGS/` |
+| `docs/` | `~/.local/docs/SDG-WAYSHELL-CONFIGS/` |
 
-| Script | Purpose |
-|--------|---------|
-| `install.sh` | Deploy `config/wayshellconf/` → `~/.config/sdgos/wayshell/configs/`, make scripts executable |
-| `uninstall.sh` | Remove `~/.config/sdgos/wayshell/configs/` |
-| `update.sh` | Overwrite config scripts |
-| `detect.sh` | Check for `waybar`, `brightnessctl`, `wpctl`, `grim`, `slurp`, `jq`, `wl-copy` |
+## Subdirectory Reorganization
 
-## 2. Path Audit
+The 22+ files currently flat in `config/wayshellconf/` should be organized into feature subdirectories:
 
-### 2.1 No hardcoded `/home/$(whoami)/` or `/home/den/`
-All scripts in this module correctly use `$HOME`, `~`, or `$XDG_CACHE_HOME`. **This module has the cleanest path usage in the entire project.**
-
-### 2.2 Cache directory convention
-Several scripts use:
-```bash
-CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/wayshell"
 ```
-This is correct and consistent. `~/.cache/wayshell/` is the runtime state directory.
+~/.config/SDG-WAYSHELL-CONFIGS/
+├── bottom-bar/
+│   ├── bottom-bar.sh
+│   ├── bottom-left.sh
+│   └── bottom-right.sh
+├── screenshot/
+│   ├── screenshot-area.sh
+│   ├── screenshot-screen.sh
+│   ├── screenshot-win.sh
+│   ├── screenshot-ss.sh
+│   @   screenshot-module.sh -> ../screenshot/screenshot-area.sh
+│   @   screenshot-screenshot-screenshooter.sh -> ../screenshot/screenshot-screen.sh
+├── volume/
+│   ├── volume-down.sh
+│   ├── volume-mute.sh
+│   └── volume-up.sh
+├── brightness/
+│   ├── brightness-down.sh
+│   └── brightness-up.sh
+├── window/
+│   ├── window-kill.sh
+│   ├── window-half-left.sh
+│   └── window-half-right.sh
+├── mpv/
+│   ├── mpv-queue.sh
+│   └── mpv-seek.sh
+├── player/
+│   ├── player-next.sh
+│   ├── player-pause.sh
+│   └── player-prev.sh
+├── wofi/
+│   ├── wofi-powermenu.sh
+│   └── wofi-run.sh
+├── media/
+│   └── media-ffwd.sh (or wf-recorder)
+└── migration/
+    └── wayshell.modules (document steps)
+```
 
-## 3. Cross-module References
+The **subdirectory names** are feature groups. Within each group, the install script places the corresponding flat files. The benefits:
+- Clear ownership per script
+- Easy to script per-group install/uninstall
+- Avoids 22-file flat naming collisions
 
-### 3.1 `config/wayshellconf/bottom-bar-modules` (JSON)
-This file references wayshell config scripts with `~/.config/sdgos/wayshell/configs/` paths — all pointing to this module's own deployed files. Correct.
+## Path Rewrites
 
-### 3.2 `config/wayshellconf/bottom-bar.json`
-- Line 10: `"include": ["~/.config/sdgos/wayshell/configs/bottom-bar-modules"]` — references this module's own `bottom-bar-modules`. Correct.
+### Cross-module references TO SDG-WAYSHELL-CONFIGS
 
-### 3.3 SDG-WAYSHELL's `wayshell.modules` references this module
-- `~/.config/sdgos/wayshell/configs/brightness.json` → this module's `brightness.json`
-- `~/.config/sdgos/wayshell/configs/volume.json` → this module's `volume.json`
-- `~/.config/sdgos/wayshell/configs/screenshot.json` → this module's `screenshot.json`
-- `~/.config/sdgos/wayshell/configs/elevated-*.sh` → this module's scripts
-- `~/.config/sdgos/wayshell/configs/focused-*.sh` → this module's scripts
-- `~/.config/sdgos/wayshell/configs/ss-*.sh` → this module's scripts
-- `~/.config/sdgos/wayshell/configs/bottom-bar.*` → this module's files
+| From | Old Reference | New Reference |
+|------|--------------|---------------|
+| SDG-MANGO-CORE/binds.conf | `.../wayshell/configs/ss-*.sh` | `~/.config/SDG-WAYSHELL-CONFIGS/screenshot/ss-*.sh` |
+| SDG-WAYSHELL/wayshell.modules | `$HOME/.config/wayshellconf/...` | `$HOME/.config/SDG-WAYSHELL-CONFIGS/...` (with subdirs) |
 
-### 3.4 SDG-MANGO-CORE's `binds.conf` references this module
-- Lines 95-99: `~/.config/sdgos/wayshell/configs/ss-*.sh` — screenshot scripts.
+The `wayshell.modules` references to `wayshellconf` scripts must be updated in **SDG-WAYSHELL** (not here). This module only provides the scripts.
 
-## 4. Deploy Path Map
+## Lifecycle Scripts
 
-| Source | Destination | Notes |
-|--------|-------------|-------|
-| `config/wayshellconf/brightness.sh` | `~/.config/sdgos/wayshell/configs/brightness.sh` | Waybar JSON output |
-| `config/wayshellconf/brightness-bar.sh` | `~/.config/sdgos/wayshell/configs/brightness-bar.sh` | Vertical bar display |
-| `config/wayshellconf/brightness.json` | `~/.config/sdgos/wayshell/configs/brightness.json` | Waybar config |
-| `config/wayshellconf/brightness.css` | `~/.config/sdgos/wayshell/configs/brightness.css` | Waybar style |
-| `config/wayshellconf/volume.sh` | `~/.config/sdgos/wayshell/configs/volume.sh` | Waybar JSON output |
-| `config/wayshellconf/volume-bar.sh` | `~/.config/sdgos/wayshell/configs/volume-bar.sh` | Vertical bar display |
-| `config/wayshellconf/volume-icon.sh` | `~/.config/sdgos/wayshell/configs/volume-icon.sh` | Icon display |
-| `config/wayshellconf/volume.json` | `~/.config/sdgos/wayshell/configs/volume.json` | Waybar config |
-| `config/wayshellconf/volume.css` | `~/.config/sdgos/wayshell/configs/volume.css` | Waybar style |
-| `config/wayshellconf/screenshot.json` | `~/.config/sdgos/wayshell/configs/screenshot.json` | Screenshot waybar config |
-| `config/wayshellconf/screenshot.css` | `~/.config/sdgos/wayshell/configs/screenshot.css` | Screenshot waybar style |
-| `config/wayshellconf/screenshot-modules` | `~/.config/sdgos/wayshell/configs/screenshot-modules` | Screenshot modules |
-| `config/wayshellconf/ss-*.sh` (6 files) | `~/.config/sdgos/wayshell/configs/ss-*.sh` | Screenshot scripts |
-| `config/wayshellconf/bottom-bar.json` | `~/.config/sdgos/wayshell/configs/bottom-bar.json` | Bottom bar waybar config |
-| `config/wayshellconf/bottom-bar.css` | `~/.config/sdgos/wayshell/configs/bottom-bar.css` | Bottom bar style |
-| `config/wayshellconf/bottom-bar-modules` | `~/.config/sdgos/wayshell/configs/bottom-bar-modules` | Bottom bar modules |
-| `config/wayshellconf/elevated-*.sh` (6 files) | `~/.config/sdgos/wayshell/configs/elevated-*.sh` | Elevated process bar |
-| `config/wayshellconf/focused-*.sh` (4 files) | `~/.config/sdgos/wayshell/configs/focused-*.sh` | Focused process bar |
-| `config/wayshellconf/waybar-modules` | `~/.config/sdgos/wayshell/configs/waybar-modules` | Volume/brightness bar modules |
+All four root-level scripts are empty. Implement:
 
-## 5. Screenshot System State
-- `ss-capture.sh` reads/writes `~/.config/screenshot.state` (top-level config).
-- State file format: `mode=clipboard|disk|editor`, `save_dir=...`, `editor=...`.
-- Consider moving to `~/.config/sdgos/wayshell/configs/screenshot.state` for consistency.
+- **install.sh**: Copy files to `~/.config/SDG-WAYSHELL-CONFIGS/` organized into subdirectories. Each subdirectory is a feature group. The install script should:
+  1. Detect files in `config/wayshellconf/`.
+  2. Group by category (bottom-bar, volume, brightness, etc.) using a mapping table in install.sh.
+  3. Create subdirectories.
+  4. Copy files into their group subdirectory.
+- **uninstall.sh**: Remove `~/.config/SDG-WAYSHELL-CONFIGS/` entirely.
+- **update.sh**: Re-deploy with backup.
+- **detect.sh**: Check `wayshell` is installed.
 
-## 6. Modular Tips/Help Contribution
+## Example install.sh Grouping Logic
 
-### 6.1 Tips
-- Add tips about the wayshell bar system (volume/brightness sliders, screenshot toolbar, bottom bar with elevated/focused processes).
-- Create `tips/` directory.
+```bash
+# In install.sh:
+declare -A GROUPS
+GROUPS=(
+  ["bottom-bar.sh"]="bottom-bar"
+  ["bottom-left.sh"]="bottom-bar"
+  ["bottom-right.sh"]="bottom-bar"
+  ["volume-down.sh"]="volume"
+  ["volume-mute.sh"]="volume"
+  ["volume-up.sh"]="volume"
+  ["brightness-down.sh"]="brightness"
+  ["brightness-up.sh"]="brightness"
+  ["window-kill.sh"]="window"
+  ["window-half-left.sh"]="window"
+  ["window-half-right.sh"]="window"
+  ["mpv-queue.sh"]="mpv"
+  ["mpv-seek.sh"]="mpv"
+  ["player-next.sh"]="player"
+  ["player-pause.sh"]="player"
+  ["player-prev.sh"]="player"
+  ["screenshot-area.sh"]="screenshot"
+  ["screenshot-screen.sh"]="screenshot"
+  ["screenshot-win.sh"]="screenshot"
+  ["wofi-powermenu.sh"]="wofi"
+  ["wofi-run.sh"]="wofi"
+)
 
-### 6.2 Help system
-- Contribute a help topic about customizing wayshell configs, screenshot modes, and bottom bar modules.
-- The bottom bar and elevated/focused process monitoring is a complex feature — documentation would be valuable.
+SRC="config/wayshellconf"
+DST="$HOME/.config/SDG-WAYSHELL-CONFIGS"
 
-## 7. Empty Directory Cleanup
+for file in "$SRC"/*.sh; do
+  basename=$(basename "$file")
+  group=${GROUPS[$basename]}
+  [ -n "$group" ] && mkdir -p "$DST/$group" && cp "$file" "$DST/$group/"
+done
+```
 
-| Directory | Status |
-|-----------|--------|
-| `cache/` | Empty — remove |
-| `tips/` | Empty — add tips or remove |
-| `other/` | Empty — remove |
-| `docs/` | Empty — remove or add module-level docs |
+## Modular Tips
 
-## 8. Module Relationship
-- SDG-WAYSHELL-CONFIGS is a **data/config companion** to SDG-WAYSHELL.
-- SDG-WAYSHELL provides the daemon runtime, SDG-WAYSHELL-CONFIGS provides all the configs and scripts the daemon manages.
-- The split makes sense for independent update cycles.
+- Create `tips/` with wayshell config scripts usage tips.
 
-## 9. Note on the "monocle" config gap
-- `wayshell.modules` in SDG-WAYSHELL references `~/.config/sdgos/monocle/` paths.
-- No monocle configs exist in SDG-WAYSHELL-CONFIGS or any other current module.
-- Either create an SDG-MONOCLE module or add monocle support here.
+## Modular Docs
+
+- Create `docs/` documenting the available waybar/wayshell scripts and their keybind mappings.
+
+## Cleanup
+
+- Remove `config/wayshellconf/deprecated/` — mark as deprecated
+- Remove empty `cache/`, `other/`, `tips/`
