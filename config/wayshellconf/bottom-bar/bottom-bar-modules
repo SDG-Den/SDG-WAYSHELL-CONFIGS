@@ -1,108 +1,108 @@
 {
     "custom/elevated-daemon": {
-        "exec": "~/.config/sdgos/wayshell/configs/elevated-daemon.sh --daemon",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-daemon.sh --daemon",
         "return-type": "json",
         "format": "{text}",
         "interval": 5
     },
     "custom/elevated-pin": {
-        "exec": "~/.config/sdgos/wayshell/configs/elevated-daemon.sh pin",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-daemon.sh pin",
         "return-type": "json",
         "format": "{text}",
         "interval": 86400,
         "signal": 1,
-        "on-click": "~/.config/sdgos/wayshell/configs/elevated-pin.sh"
+        "on-click": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-pin.sh"
     },
     "custom/elevated-1": {
-        "exec": "~/.config/sdgos/wayshell/configs/elevated-daemon.sh 1",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-daemon.sh 1",
         "return-type": "json",
         "format": "{text}",
         "interval": 86400,
         "signal": 1,
-        "on-click": "~/.config/sdgos/wayshell/configs/elevated-focus.sh 1"
+        "on-click": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-focus.sh 1"
     },
     "custom/elevated-2": {
-        "exec": "~/.config/sdgos/wayshell/configs/elevated-daemon.sh 2",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-daemon.sh 2",
         "return-type": "json",
         "format": "{text}",
         "interval": 86400,
         "signal": 1,
-        "on-click": "~/.config/sdgos/wayshell/configs/elevated-focus.sh 2"
+        "on-click": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-focus.sh 2"
     },
     "custom/elevated-3": {
-        "exec": "~/.config/sdgos/wayshell/configs/elevated-daemon.sh 3",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-daemon.sh 3",
         "return-type": "json",
         "format": "{text}",
         "interval": 86400,
         "signal": 1,
-        "on-click": "~/.config/sdgos/wayshell/configs/elevated-focus.sh 3"
+        "on-click": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-focus.sh 3"
     },
     "custom/elevated-4": {
-        "exec": "~/.config/sdgos/wayshell/configs/elevated-daemon.sh 4",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-daemon.sh 4",
         "return-type": "json",
         "format": "{text}",
         "interval": 86400,
         "signal": 1,
-        "on-click": "~/.config/sdgos/wayshell/configs/elevated-focus.sh 4"
+        "on-click": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-focus.sh 4"
     },
     "custom/elevated-5": {
-        "exec": "~/.config/sdgos/wayshell/configs/elevated-daemon.sh 5",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-daemon.sh 5",
         "return-type": "json",
         "format": "{text}",
         "interval": 86400,
         "signal": 1,
-        "on-click": "~/.config/sdgos/wayshell/configs/elevated-focus.sh 5"
+        "on-click": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-focus.sh 5"
     },
     "custom/cap": {
-        "exec": "~/.config/sdgos/wayshell/configs/elevated-daemon.sh cap",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-daemon.sh cap",
         "return-type": "json",
         "format": "{text}",
         "interval": 86400,
         "signal": 1
     },
     "custom/focused-cap": {
-        "exec": "~/.config/sdgos/wayshell/configs/focused-daemon.sh cap",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/focused-daemon.sh cap",
         "return-type": "json",
         "format": "{text}",
         "interval": 86400,
         "signal": 2
     },
     "custom/focused-daemon": {
-        "exec": "~/.config/sdgos/wayshell/configs/focused-daemon.sh --daemon",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/focused-daemon.sh --daemon",
         "return-type": "json",
         "format": "{text}",
         "interval": 3
     },
     "custom/focused-pin": {
-        "exec": "~/.config/sdgos/wayshell/configs/focused-daemon.sh pin",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/focused-daemon.sh pin",
         "return-type": "json",
         "format": "{text}",
         "interval": 86400,
         "signal": 2,
-        "on-click": "~/.config/sdgos/wayshell/configs/focused-pin.sh"
+        "on-click": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/focused-pin.sh"
     },
     "custom/focused-cpu": {
-        "exec": "~/.config/sdgos/wayshell/configs/focused-daemon.sh cpu",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/focused-daemon.sh cpu",
         "return-type": "json",
         "format": "{text}",
         "interval": 86400,
         "signal": 2
     },
     "custom/focused-mem": {
-        "exec": "~/.config/sdgos/wayshell/configs/focused-daemon.sh mem",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/focused-daemon.sh mem",
         "return-type": "json",
         "format": "{text}",
         "interval": 86400,
         "signal": 2
     },
     "custom/focused-fps-daemon": {
-        "exec": "~/.config/sdgos/wayshell/configs/focused-daemon.sh --fps-daemon",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/focused-daemon.sh --fps-daemon",
         "return-type": "json",
         "format": "{text}",
         "interval": 1
     },
     "custom/focused-fps": {
-        "exec": "~/.config/sdgos/wayshell/configs/focused-daemon.sh fps",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/focused-daemon.sh fps",
         "return-type": "json",
         "format": "{text}",
         "interval": 86400,

@@ -7,7 +7,7 @@
 
     "spacing": 2,
     "include": [
-        "~/.config/sdgos/wayshell/configs/screenshot-modules"
+        "screenshot-modules"
     ],
     "modules-left": [
     ],

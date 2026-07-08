@@ -7,7 +7,7 @@
     "margin-right": 10,
     "spacing": 2,
     "include": [
-        "~/.config/sdgos/wayshell/configs/bottom-bar-modules"
+        "bottom-bar-modules"
     ],
     "modules-left": [
         "custom/elevated-daemon",

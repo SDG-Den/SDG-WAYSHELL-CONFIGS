@@ -4,131 +4,99 @@
 
 | Source | Installed to |
 |--------|-------------|
-| `config/wayshellconf/` (22+ files) | `~/.config/SDG-WAYSHELL-CONFIGS/` (with subdirectory reorg) |
+| `config/wayshellconf/bottom-bar/` (13 files) | `~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/` |
+| `config/wayshellconf/screenshot/` (8 files) | `~/.config/SDG-WAYSHELL-CONFIGS/screenshot/` |
+| `config/wayshellconf/volume/` (5 files) | `~/.config/SDG-WAYSHELL-CONFIGS/volume/` |
+| `config/wayshellconf/brightness/` (4 files) | `~/.config/SDG-WAYSHELL-CONFIGS/brightness/` |
+| `config/wayshellconf/colors.css` | `~/.config/SDG-WAYSHELL-CONFIGS/colors.css` |
+| `config/wayshellconf/waybar-modules` | `~/.config/SDG-WAYSHELL-CONFIGS/waybar-modules` |
 | `tips/` | `~/.local/tips/SDG-WAYSHELL-CONFIGS/` |
 | `docs/` | `~/.local/docs/SDG-WAYSHELL-CONFIGS/` |
 
-## Subdirectory Reorganization
-
-The 22+ files currently flat in `config/wayshellconf/` should be organized into feature subdirectories:
-
-```
-~/.config/SDG-WAYSHELL-CONFIGS/
-├── bottom-bar/
-│   ├── bottom-bar.sh
-│   ├── bottom-left.sh
-│   └── bottom-right.sh
-├── screenshot/
-│   ├── screenshot-area.sh
-│   ├── screenshot-screen.sh
-│   ├── screenshot-win.sh
-│   ├── screenshot-ss.sh
-│   @   screenshot-module.sh -> ../screenshot/screenshot-area.sh
-│   @   screenshot-screenshot-screenshooter.sh -> ../screenshot/screenshot-screen.sh
-├── volume/
-│   ├── volume-down.sh
-│   ├── volume-mute.sh
-│   └── volume-up.sh
-├── brightness/
-│   ├── brightness-down.sh
-│   └── brightness-up.sh
-├── window/
-│   ├── window-kill.sh
-│   ├── window-half-left.sh
-│   └── window-half-right.sh
-├── mpv/
-│   ├── mpv-queue.sh
-│   └── mpv-seek.sh
-├── player/
-│   ├── player-next.sh
-│   ├── player-pause.sh
-│   └── player-prev.sh
-├── wofi/
-│   ├── wofi-powermenu.sh
-│   └── wofi-run.sh
-├── media/
-│   └── media-ffwd.sh (or wf-recorder)
-└── migration/
-    └── wayshell.modules (document steps)
-```
-
-The **subdirectory names** are feature groups. Within each group, the install script places the corresponding flat files. The benefits:
-- Clear ownership per script
-- Easy to script per-group install/uninstall
-- Avoids 22-file flat naming collisions
-
 ## Path Rewrites
 
-### Cross-module references TO SDG-WAYSHELL-CONFIGS
+All config files previously referenced `~/.config/sdgos/wayshell/configs/`. After migration:
 
-| From | Old Reference | New Reference |
-|------|--------------|---------------|
-| SDG-MANGO-CORE/binds.conf | `.../wayshell/configs/ss-*.sh` | `~/.config/SDG-WAYSHELL-CONFIGS/screenshot/ss-*.sh` |
-| SDG-WAYSHELL/wayshell.modules | `$HOME/.config/wayshellconf/...` | `$HOME/.config/SDG-WAYSHELL-CONFIGS/...` (with subdirs) |
+### bottom-bar/ — elevated & focused process monitor scripts
 
-The `wayshell.modules` references to `wayshellconf` scripts must be updated in **SDG-WAYSHELL** (not here). This module only provides the scripts.
+| Old | New |
+|-----|-----|
+| `~/.config/sdgos/wayshell/configs/elevated-daemon.sh` | `~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/elevated-daemon.sh` |
+| `~/.config/sdgos/wayshell/configs/bottom-bar.json` | `~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/bottom-bar.json` |
+| `~/.config/sdgos/wayshell/configs/bottom-bar.css` | `~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/bottom-bar.css` |
+| (same for all elevated-* and focused-* scripts) | |
+
+### screenshot/ — screenshot toolbar
+
+| Old | New |
+|-----|-----|
+| `~/.config/sdgos/wayshell/configs/ss-capture.sh` | `~/.config/SDG-WAYSHELL-CONFIGS/screenshot/ss-capture.sh` |
+| `~/.config/sdgos/wayshell/configs/screenshot.json` | `~/.config/SDG-WAYSHELL-CONFIGS/screenshot/screenshot.json` |
+| (same for all ss-* scripts) | |
+
+### volume/ — volume bar
+
+| Old | New |
+|-----|-----|
+| `~/.config/sdgos/wayshell/configs/volume-bar.sh` | `~/.config/SDG-WAYSHELL-CONFIGS/volume/volume-bar.sh` |
+| `~/.config/sdgos/wayshell/configs/volume.json` | `~/.config/SDG-WAYSHELL-CONFIGS/volume/volume.json` |
+
+### brightness/ — brightness bar
+
+| Old | New |
+|-----|-----|
+| `~/.config/sdgos/wayshell/configs/brightness-bar.sh` | `~/.config/SDG-WAYSHELL-CONFIGS/brightness/brightness-bar.sh` |
+| `~/.config/sdgos/wayshell/configs/brightness.json` | `~/.config/SDG-WAYSHELL-CONFIGS/brightness/brightness.json` |
+
+### CSS @import paths
+
+All subdirectory CSS files (`bottom-bar.css`, `screenshot.css`, `volume.css`, `brightness.css`) now use `@import "../colors.css"` instead of `@import "./colors.css"`.
+
+### Waybar JSON includes
+
+- `bottom-bar.json` includes: `bottom-bar-modules` (same dir)
+- `screenshot.json` includes: `screenshot-modules` (same dir)
+- `volume.json` includes: `../waybar-modules` (root level)
+- `brightness.json` includes: `../waybar-modules` (root level)
+
+### Cross-module references (SDG-WAYSHELL wayshell.modules)
+
+Updated to reference subdirectory paths (e.g., `brightness/brightness.json`, `volume/volume.json`, `bottom-bar/elevated-show.sh`).
+
+## Matugen Auto-Theming
+
+The theming pipeline (unchanged):
+
+1. **Template** lives in SDG-WAYSHELL at `~/.local/SDG-WAYSHELL/colors.css` (Jinja2)
+2. **MATUGEN.toml** in SDG-WAYSHELL configures: input=`~/.local/SDG-WAYSHELL/colors.css`, output=`~/.config/SDG-WAYSHELL-CONFIGS/colors.css`
+3. **Generated colors.css** sits at the root of `~/.config/SDG-WAYSHELL-CONFIGS/`
+4. All subdirectory CSS files `@import "../colors.css"` to access themed colors
+
+This works because all CSS files are exactly one level deep, so `../colors.css` resolves to the root colors.css regardless of which subdirectory they're in.
 
 ## Lifecycle Scripts
 
-All four root-level scripts are empty. Implement:
+All three are empty. Implement:
 
-- **install.sh**: Copy files to `~/.config/SDG-WAYSHELL-CONFIGS/` organized into subdirectories. Each subdirectory is a feature group. The install script should:
-  1. Detect files in `config/wayshellconf/`.
-  2. Group by category (bottom-bar, volume, brightness, etc.) using a mapping table in install.sh.
-  3. Create subdirectories.
-  4. Copy files into their group subdirectory.
-- **uninstall.sh**: Remove `~/.config/SDG-WAYSHELL-CONFIGS/` entirely.
-- **update.sh**: Re-deploy with backup.
-- **detect.sh**: Check `wayshell` is installed.
+**install.sh**:
+- `WORKDIR=/home/$(whoami)/.cache/SDG-PKG/sdg-wayshell-conf`
+- `cp -r $WORKDIR/config/* /home/$(whoami)/.config/SDG-WAYSHELL-CONFIGS`
+- Create docs/tips dirs, copy
+- The source has subdirectories → `cp -r` preserves the structure
 
-## Example install.sh Grouping Logic
+**uninstall.sh**:
+- `rm -rf ~/.config/SDG-WAYSHELL-CONFIGS`
+- `rm -rf ~/.local/docs/SDG-WAYSHELL-CONFIGS`
+- `rm -rf ~/.local/tips/SDG-WAYSHELL-CONFIGS`
 
-```bash
-# In install.sh:
-declare -A GROUPS
-GROUPS=(
-  ["bottom-bar.sh"]="bottom-bar"
-  ["bottom-left.sh"]="bottom-bar"
-  ["bottom-right.sh"]="bottom-bar"
-  ["volume-down.sh"]="volume"
-  ["volume-mute.sh"]="volume"
-  ["volume-up.sh"]="volume"
-  ["brightness-down.sh"]="brightness"
-  ["brightness-up.sh"]="brightness"
-  ["window-kill.sh"]="window"
-  ["window-half-left.sh"]="window"
-  ["window-half-right.sh"]="window"
-  ["mpv-queue.sh"]="mpv"
-  ["mpv-seek.sh"]="mpv"
-  ["player-next.sh"]="player"
-  ["player-pause.sh"]="player"
-  ["player-prev.sh"]="player"
-  ["screenshot-area.sh"]="screenshot"
-  ["screenshot-screen.sh"]="screenshot"
-  ["screenshot-win.sh"]="screenshot"
-  ["wofi-powermenu.sh"]="wofi"
-  ["wofi-run.sh"]="wofi"
-)
+**update.sh**:
+- Re-deploy config/* and docs/*, tips/* from cache
 
-SRC="config/wayshellconf"
-DST="$HOME/.config/SDG-WAYSHELL-CONFIGS"
-
-for file in "$SRC"/*.sh; do
-  basename=$(basename "$file")
-  group=${GROUPS[$basename]}
-  [ -n "$group" ] && mkdir -p "$DST/$group" && cp "$file" "$DST/$group/"
-done
-```
-
-## Modular Tips
-
-- Create `tips/` with wayshell config scripts usage tips.
-
-## Modular Docs
-
-- Create `docs/` documenting the available waybar/wayshell scripts and their keybind mappings.
+**detect.sh** → REMOVED (empty, not needed)
 
 ## Cleanup
 
-- Remove `config/wayshellconf/deprecated/` — mark as deprecated
-- Remove empty `cache/`, `other/`, `tips/`
+- `cache/` — empty, remove
+- `other/` — empty, remove
+- `docs/` — empty, add placeholder
+- `tips/` — empty, add placeholder

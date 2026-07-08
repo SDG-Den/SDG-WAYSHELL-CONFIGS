@@ -13,6 +13,6 @@ echo 1 > "$VISIBLE_FILE"
 
 if ! pgrep -f "waybar.*bottom-bar" > /dev/null 2>&1; then
     mmsg dispatch spawn_shell,waybar \
-        -c ~/.config/sdgos/wayshell/configs/bottom-bar.json \
-        -s ~/.config/sdgos/wayshell/configs/bottom-bar.css
+        -c $HOME/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/bottom-bar.json \
+        -s $HOME/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/bottom-bar.css
 fi

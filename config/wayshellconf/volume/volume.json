@@ -9,7 +9,7 @@
     "margin-right": 6,
     "spacing": 0,
     "include": [
-        "~/.config/sdgos/wayshell/configs/waybar-modules"
+        "../waybar-modules"
     ],
     "modules-left": [
     ],

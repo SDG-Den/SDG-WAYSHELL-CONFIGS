@@ -2,22 +2,22 @@
     "custom/ss-monitor": {
         "format": "",
         "tooltip-format": "Capture monitor",
-        "on-click": "mmsg dispatch spawn_shell,'~/.config/sdgos/wayshell/configs/ss-capture.sh output'"
+        "on-click": "mmsg dispatch spawn_shell,'~/.config/SDG-WAYSHELL-CONFIGS/screenshot/ss-capture.sh output'"
     },
     "custom/ss-zone": {
         "format": "",
         "tooltip-format": "Select zone",
-        "on-click": "mmsg dispatch spawn_shell,'~/.config/sdgos/wayshell/configs/ss-capture.sh area'"
+        "on-click": "mmsg dispatch spawn_shell,'~/.config/SDG-WAYSHELL-CONFIGS/screenshot/ss-capture.sh area'"
     },
     "custom/ss-all": {
         "format": "",
         "tooltip-format": "All monitors",
-        "on-click": "mmsg dispatch spawn_shell,'~/.config/sdgos/wayshell/configs/ss-capture.sh screen'"
+        "on-click": "mmsg dispatch spawn_shell,'~/.config/SDG-WAYSHELL-CONFIGS/screenshot/ss-capture.sh screen'"
     },
     "custom/ss-window": {
         "format": "",
         "tooltip-format": "Capture window",
-        "on-click": "mmsg dispatch spawn_shell,'~/.config/sdgos/wayshell/configs/ss-capture.sh active'"
+        "on-click": "mmsg dispatch spawn_shell,'~/.config/SDG-WAYSHELL-CONFIGS/screenshot/ss-capture.sh active'"
     },
     "custom/ss-obs": {
         "format": "",
@@ -25,16 +25,16 @@
         "on-click": "mmsg dispatch spawn_shell,'obs'"
     },
     "custom/ss-mode": {
-        "exec": "~/.config/sdgos/wayshell/configs/ss-mode.sh",
+        "exec": "~/.config/SDG-WAYSHELL-CONFIGS/screenshot/ss-mode.sh",
         "interval": 86400,
         "signal": 1,
         "format": "{}",
         "tooltip-format": "Screenshot mode",
-        "on-click": "mmsg dispatch spawn_shell,'~/.config/sdgos/wayshell/configs/ss-mode-cycle.sh'"
+        "on-click": "mmsg dispatch spawn_shell,'~/.config/SDG-WAYSHELL-CONFIGS/screenshot/ss-mode-cycle.sh'"
     },
     "custom/ss-settings": {
         "format": "",
         "tooltip-format": "Settings",
-        "on-click": "mmsg dispatch spawn_shell,'~/.config/sdgos/wayshell/configs/ss-settings-menu.sh'"
+        "on-click": "mmsg dispatch spawn_shell,'~/.config/SDG-WAYSHELL-CONFIGS/screenshot/ss-settings-menu.sh'"
     }
 }
