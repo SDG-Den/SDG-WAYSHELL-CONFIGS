@@ -94,6 +94,27 @@ All three are empty. Implement:
 
 **detect.sh** → REMOVED (empty, not needed)
 
+## SDG-MONOCLE (via SDG-WAYSHELL-CONFIGS)
+
+Monocle bar waybar configs and scripts live in SDG-WAYSHELL-CONFIGS:
+
+| Source | Installed to |
+|--------|-------------|
+| `config/SDG-MONOCLE/config-hdmi` | `~/.config/SDG-MONOCLE/config-hdmi` |
+| `config/SDG-MONOCLE/config-dp1` | `~/.config/SDG-MONOCLE/config-dp1` |
+| `config/SDG-MONOCLE/config-dp3` | `~/.config/SDG-MONOCLE/config-dp3` |
+| `config/SDG-MONOCLE/modules-hdmi.json` | `~/.config/SDG-MONOCLE/modules-hdmi.json` |
+| `config/SDG-MONOCLE/modules-dp1.json` | `~/.config/SDG-MONOCLE/modules-dp1.json` |
+| `config/SDG-MONOCLE/modules-dp3.json` | `~/.config/SDG-MONOCLE/modules-dp3.json` |
+| `config/SDG-MONOCLE/style.css` | `~/.config/SDG-MONOCLE/style.css` |
+| `config/SDG-MONOCLE/colors.css` | `~/.config/SDG-MONOCLE/colors.css` |
+| `local/SDG-MONOCLE/monocle.sh` | `~/.local/SDG-MONOCLE/monocle.sh` |
+| `local/SDG-MONOCLE/indexer.sh` | `~/.local/SDG-MONOCLE/indexer.sh` |
+| `local/SDG-MONOCLE/fetchwindow.sh` | `~/.local/SDG-MONOCLE/fetchwindow.sh` |
+| `local/SDG-MONOCLE/focuswindow.sh` | `~/.local/SDG-MONOCLE/focuswindow.sh` |
+
+Paths in `wayshell.modules` reference `$HOME/.config/SDG-MONOCLE/` — correct.
+
 ## Cleanup
 
 - `cache/` — empty, remove

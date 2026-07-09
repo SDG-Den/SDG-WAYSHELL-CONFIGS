@@ -1,11 +1,16 @@
 #!/bin/bash
 
-rm -rf /home/$(whoami)/.config/SDG-WAYSHELL-CONFIGS
-cp -r /home/$(whoami)/.cache/SDG-PKG/sdg-wayshell-conf/config/wayshellconf/* /home/$(whoami)/.config/SDG-WAYSHELL-CONFIGS/
+# re-deploy scripting + docs/tips only — preserve user configs
 
-rm -rf /home/$(whoami)/.local/docs/SDG-WAYSHELL-CONFIGS
-rm -rf /home/$(whoami)/.local/tips/SDG-WAYSHELL-CONFIGS
-mkdir -p /home/$(whoami)/.local/docs
-mkdir -p /home/$(whoami)/.local/tips
-cp -r /home/$(whoami)/.cache/SDG-PKG/sdg-wayshell-conf/docs/* /home/$(whoami)/.local/docs
-cp -r /home/$(whoami)/.cache/SDG-PKG/sdg-wayshell-conf/tips/* /home/$(whoami)/.local/tips
+# re-deploy monocle scripts
+rm -rf $HOME/.local/SDG-MONOCLE
+cp -r $HOME/.cache/SDG-PKG/sdg-wayshell-conf/local/SDG-MONOCLE/* $HOME/.local/SDG-MONOCLE/
+chmod a+x $HOME/.local/SDG-MONOCLE/*.sh
+
+# re-deploy docs and tips
+rm -rf $HOME/.local/docs/SDG-WAYSHELL-CONFIGS
+rm -rf $HOME/.local/tips/SDG-WAYSHELL-CONFIGS
+mkdir -p $HOME/.local/docs
+mkdir -p $HOME/.local/tips
+cp -r $HOME/.cache/SDG-PKG/sdg-wayshell-conf/docs/* $HOME/.local/docs
+cp -r $HOME/.cache/SDG-PKG/sdg-wayshell-conf/tips/* $HOME/.local/tips
