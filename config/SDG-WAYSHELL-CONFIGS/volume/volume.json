@@ -9,7 +9,7 @@
     "margin-right": 6,
     "spacing": 0,
     "include": [
-        "../waybar-modules"
+        "~/.config/SDG-WAYSHELL-CONFIGS/waybar-modules"
     ],
     "modules-left": [
     ],

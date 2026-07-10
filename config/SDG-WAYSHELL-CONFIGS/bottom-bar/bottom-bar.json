@@ -7,7 +7,7 @@
     "margin-right": 10,
     "spacing": 2,
     "include": [
-        "bottom-bar-modules"
+        "~/.config/SDG-WAYSHELL-CONFIGS/bottom-bar/bottom-bar-modules"
     ],
     "modules-left": [
         "custom/elevated-daemon",

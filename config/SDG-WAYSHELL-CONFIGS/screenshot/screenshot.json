@@ -7,7 +7,7 @@
 
     "spacing": 2,
     "include": [
-        "screenshot-modules"
+        "~/.config/SDG-WAYSHELL-CONFIGS/screenshot/screenshot-modules"
     ],
     "modules-left": [
     ],
