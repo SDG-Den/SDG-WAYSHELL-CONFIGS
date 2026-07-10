@@ -4,7 +4,6 @@
 
 # re-deploy monocle scripts
 rm -rf $HOME/.local/SDG-MONOCLE
-mkdir 
 cp -r $HOME/.cache/SDG-PKG/sdg-wayshell-conf/local/* $HOME/.local/
 chmod a+x $HOME/.local/SDG-MONOCLE/*.sh
 
