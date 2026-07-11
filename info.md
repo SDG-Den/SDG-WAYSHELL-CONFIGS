@@ -2,9 +2,18 @@ Package Name: sdg-wayshell-conf
 Descriptive Name: SDG Wayshell Configs & Widgets
 Source: https://git.sdgcloud.nl/SDGDen/SDG-WAYSHELL-CONFIGS
 Maintainer: SDGDen <sdgden@sdgcloud.nl>
-Version: 0.1.0
+Version:0.2
 
-Dependencies: waybar, mmsg, wpctl (PipeWire), brightnessctl, grim, slurp, wl-copy (wl-clipboard), jq, bc, notify-send
+Dependencies: 
+waybar, mangowm, wpctl (PipeWire), brightnessctl, grim, slurp, wl-copy (wl-clipboard), jq, bc, notify-send
 Optional: nvidia-smi, zenity, pavucontrol, ydotool, btop, fuzzel, alacritty, OBS Studio
 
-Description: Waybar-based widget configuration and scripting package for the SDG-WAYSHELL compositor ecosystem. ~1000 lines of Bash across 24 scripts. Provides: volume OSD (right edge), brightness OSD (left edge), screenshot toolbar (top-center, 3 output modes), bottom bar with elevated process monitoring + focused process CPU/RAM/GPU tracking, and per-monitor monocle window switcher bars.
+Description: 
+Waybar-based widget configuration and scripting package for the SDG-WAYSHELL compositor ecosystem. ~1000 lines of Bash across 24 scripts. 
+
+Provides: 
+volume OSD (right edge), 
+brightness OSD (left edge), 
+screenshot toolbar (top-center, 3 output modes), 
+bottom bar with elevated process monitoring + focused process CPU/RAM/GPU tracking, 
+per-monitor monocle/deck/vdeck window switcher bars.
