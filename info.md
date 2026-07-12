@@ -1,7 +1,7 @@
 Package Name: sdg-wayshell-conf
 Descriptive Name: SDG Wayshell Configs & Widgets
-Source: https://git.sdgcloud.nl/SDGDen/SDG-WAYSHELL-CONFIGS
-Maintainer: SDGDen <sdgden@sdgcloud.nl>
+Source: https://github.com/SDG-Den/SDG-WAYSHELL-CONFIGS
+Maintainer: SDGDen
 Version:0.2
 
 Dependencies: 
