@@ -2,7 +2,7 @@ Package Name: sdg-wayshell-conf
 Descriptive Name: SDG Wayshell Configs & Widgets
 Source: https://github.com/SDG-Den/SDG-WAYSHELL-CONFIGS
 Maintainer: SDGDen
-Version:0.2
+Version:0.2.1
 
 Dependencies: 
 waybar, mangowm, wpctl (PipeWire), brightnessctl, grim, slurp, wl-copy (wl-clipboard), jq, bc, notify-send

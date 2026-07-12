@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ### dependencies
-unipkg install any sdg-wayshell
+sdgpkg install sdg-wayshell
 
 WORKDIR="$HOME/.cache/SDG-PKG/sdg-wayshell-conf"
 
