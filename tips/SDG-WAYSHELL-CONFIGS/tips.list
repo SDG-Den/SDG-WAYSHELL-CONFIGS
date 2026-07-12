@@ -1,0 +1,6 @@
+Volume OSD appears when cursor touches the right screen edge — shows volume level, mute state, and supports scroll/click adjustment.
+Brightness OSD appears when cursor touches the left screen edge — mirror of volume OSD using brightnessctl.
+Screenshot toolbar appears at top-center — capture monitor, area, all monitors, or window; cycle between disk/clipboard/editor output modes.
+Elevated process bar (bottom-left) shows sudo/root processes running on any monitor — click to focus a process window.
+Focused process bar (bottom-right) shows the active window's CPU per-core, RAM, and GPU (nvidia-smi) usage in real time.
+Monocle switchers show per-monitor window lists when monocle/deck/vdeck layout is active — up to 10 slots per monitor with click-to-focus.
