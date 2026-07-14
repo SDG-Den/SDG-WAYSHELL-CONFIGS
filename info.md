@@ -9,7 +9,7 @@ waybar, mangowm, wpctl (PipeWire), brightnessctl, grim, slurp, wl-copy (wl-clipb
 Optional: nvidia-smi, zenity, pavucontrol, ydotool, btop, fuzzel, alacritty, OBS Studio
 
 Description: 
-Waybar-based widget configuration and scripting package for the SDG-WAYSHELL compositor ecosystem. ~1000 lines of Bash across 24 scripts. 
+Waybar-based widget configuration and scripting package for the SDG-WAYSHELL compositor ecosystem. 
 
 Provides: 
 volume OSD (right edge), 

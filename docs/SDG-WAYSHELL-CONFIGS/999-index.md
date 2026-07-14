@@ -1,5 +1,6 @@
 # Index
 
+- [000-user-guide](000-user-guide.md) — User-facing overview of on-screen controls
 - [101-architecture-overview](101-architecture-overview.md) — Architecture of Waybar-based widgets and overlays
 - [201-volume-osd](201-volume-osd.md) — Right-edge vertical overlay bar for PipeWire volume control
 - [202-brightness-osd](202-brightness-osd.md) — Left-edge vertical overlay bar for backlight brightness

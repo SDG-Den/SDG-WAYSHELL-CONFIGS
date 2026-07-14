@@ -8,7 +8,7 @@ Per-monitor bottom bars that appear when monocle/deck/vdeck layout is active, sh
 
 | File | Purpose |
 |------|---------|
-| `config-dp1` / `config-dp3` / `config-hdmi` | Per-monitor Waybar configs (34 lines each) |
+| `config-dp1` / `config-dp3` / `config-hdmi` | Per-monitor Waybar configs |
 | `modules-dp1.json` / `modules-dp3.json` / `modules-hdmi.json` | Per-monitor module definitions (350+ lines, 10 window slots each) |
 | `colors.css` | Matugen Material You color definitions |
 | `style.css` | Bar styling with rounded corners, surface colors |

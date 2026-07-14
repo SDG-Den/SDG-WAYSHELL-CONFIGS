@@ -17,12 +17,12 @@ Monocle switchers use `"layer": "top"` with `"exclusive": true` since they are p
 
 ## Components
 
-| Component | Edge | Files |
-|-----------|------|-------|
-| Volume OSD | Right | `volume/` — 5 files |
-| Brightness OSD | Left | `brightness/` — 4 files |
-| Screenshot Toolbar | Top-center | `screenshot/` — 8 files |
-| Bottom Bar (elevated + focused) | Bottom | `bottom-bar/` — 12 files |
+| Component | Edge | Directory |
+|-----------|------|----------|
+| Volume OSD | Right | `volume/` |
+| Brightness OSD | Left | `brightness/` |
+| Screenshot Toolbar | Top-center | `screenshot/` |
+| Bottom Bar (elevated + focused) | Bottom | `bottom-bar/` |
 | Monocle Switchers | Bottom (per-monitor) | `config/SDG-MONOCLE/` + `local/SDG-MONOCLE/` |
 
 ## Signal-Based Refresh

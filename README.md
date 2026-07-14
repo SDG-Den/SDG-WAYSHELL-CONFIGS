@@ -4,7 +4,7 @@ Waybar widget configurations and monocle window switcher bars for the SDG-WAYSHE
 
 ## Description
 
-SDG-WAYSHELL-CONFIGS provides all Waybar-based widgets and overlays consumed by SDG-WAYSHELL at runtime. It includes volume/brightness OSDs, a screenshot toolbar, bottom bar with process monitors, and per-monitor monocle/deck window switchers (~1000 lines of Bash across 24 scripts).
+SDG-WAYSHELL-CONFIGS provides all Waybar-based widgets and overlays consumed by SDG-WAYSHELL at runtime. It includes volume/brightness OSDs, a screenshot toolbar, bottom bar with process monitors, and per-monitor monocle/deck window switchers.
 
 ## Widgets
 

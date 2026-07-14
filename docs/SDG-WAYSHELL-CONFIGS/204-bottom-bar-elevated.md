@@ -19,7 +19,7 @@ Bottom-left section of the bottom bar that detects and displays root/U0 processe
 ## Behavior
 
 - Walks `/proc` for all client windows detected via `mmsg`
-- Shows up to 5 entries with title, monitor, and tag
+- Shows entries with title, monitor, and tag
 - Click an entry to focus that window
 - Pin button keeps elevated zone visible even when no root processes are detected
 - Shows "sudo" cap label when elevated processes are present
