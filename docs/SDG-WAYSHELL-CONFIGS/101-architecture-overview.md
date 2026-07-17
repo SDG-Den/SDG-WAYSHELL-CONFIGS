@@ -8,12 +8,14 @@ SDG-WAYSHELL monitors cursor zones and layout events. When triggered (e.g., curs
 
 ## Overlay Design
 
-All widget overlays use these Waybar settings:
+All transient widget overlays use these Waybar settings:
 - `"layer": "overlay"` — floats above other windows
-- `"exclusive": false` — does not reserve space
+- `"exclusive": false` — does not reserve space (except screenshot toolbar)
 - Per-edge positioning — right (volume), left (brightness), top-center (screenshot), bottom (process bars)
 
-Monocle switchers use `"layer": "top"` with `"exclusive": true` since they are persistent per-monitor bars.
+Exception: the **screenshot toolbar** uses `"exclusive": true` so its appearance does not shift underlying content.
+
+Monocle switchers use `"layer": "top"` (persistent per-monitor bars, implicitly exclusive).
 
 ## Components
 
@@ -24,6 +26,14 @@ Monocle switchers use `"layer": "top"` with `"exclusive": true` since they are p
 | Screenshot Toolbar | Top-center | `screenshot/` |
 | Bottom Bar (elevated + focused) | Bottom | `bottom-bar/` |
 | Monocle Switchers | Bottom (per-monitor) | `config/SDG-MONOCLE/` + `local/SDG-MONOCLE/` |
+
+## Bottom Bar Shared Instance
+
+The elevated and focused process bars share a single Waybar instance (`bottom-bar.json`). Each module sets a flag file in `$XDG_CACHE_HOME/wayshell/`:
+- `bottom_elevated_visible` — 1 when elevated module is active
+- `bottom_focused_visible` — 1 when focused module is active
+
+The Waybar instance stays alive as long as at least one flag is set. When both flags clear (cursor left both zones and neither is pinned), the instance is killed. Pin overrides hide — a pinned module always keeps its flag set.
 
 ## Signal-Based Refresh
 

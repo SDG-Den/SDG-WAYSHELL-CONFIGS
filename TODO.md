@@ -9,4 +9,4 @@
 - [ ] Screenshot toolbar
 - [ ] Elevated / focused process bars
 - [ ] Monocle window switchers (per-monitor)
-- [ ] SIGUSR1 / SIGUSR2 refresh
+- [ ] SIGRTMIN+1 / +2 / +3 refresh

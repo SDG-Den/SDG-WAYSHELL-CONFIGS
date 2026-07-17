@@ -28,7 +28,7 @@ CPU readings use a rolling max-of-5 samples for stable display.
 
 ## Pin Mechanism
 
-When pinned, the bar continues showing the pinned window's metrics even when focus changes.
+When pinned, the bar stays visible even when the cursor leaves the zone. Metrics always reflect the currently focused window — pin only prevents the bar from hiding, it does not freeze the displayed values.
 
 ## Refresh
 

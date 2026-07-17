@@ -17,6 +17,7 @@ Same layout as Volume OSD but on the left edge:
 - **Up button** (top): +5% brightness
 - **Bar** (middle): block-character fill level
 - **Down button** (bottom): -5% brightness
+- **Icon** (bottom): static sun icon (), not interactive
 
 ## Behavior
 

@@ -14,15 +14,17 @@ Bottom-left section of the bottom bar that detects and displays root/U0 processe
 | `elevated-hide.sh` | Hides the elevated zone |
 | `elevated-pin.sh` | Pin/unpin to keep zone visible |
 | `elevated-focus.sh` | Focus a client by position |
-| `elevated-cap.sh` | "sudo" cap label |
+| `elevated-daemon.sh cap` role | "sudo" cap label (via multi-role script) |
 
 ## Behavior
 
-- Walks `/proc` for all client windows detected via `mmsg`
-- Shows entries with title, monitor, and tag
+- Triggered by cursor entering the **bottom-left** zone of any monitor
+- Walks `/proc` for all client windows detected via `mmsg`, detecting UID 0 processes
+- Shows entries with title, monitor, and tag — only visible when elevated processes are detected
 - Click an entry to focus that window
 - Pin button keeps elevated zone visible even when no root processes are detected
 - Shows "sudo" cap label when elevated processes are present
+- Shares a single Waybar instance with the focused process bar (bottom-right)
 
 ## Refresh
 

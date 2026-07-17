@@ -17,12 +17,13 @@ Right-edge vertical overlay bar that shows and controls PipeWire volume.
 - **Up button** (top): click to +5% volume
 - **Bar** (middle): block-character fill level, click/scroll to adjust
 - **Down button** (bottom): click to -5% volume
-- **Icon** (bottom): mute state indicator, click to toggle mute
+- **Icon** (bottom): mute state indicator, click to open PulseAudio Volume Control
 
 ## Behavior
 
 Appears when cursor touches the right screen edge. Auto-hides after 1.5s of inactivity.
 
-## Dependency
+## Dependencies
 
 - `wpctl` (PipeWire) — volume control
+- `pavucontrol` (optional) — detailed volume mixer on icon click

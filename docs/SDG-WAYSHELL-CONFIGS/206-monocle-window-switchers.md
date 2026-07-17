@@ -30,6 +30,12 @@ Per-monitor bottom bars that appear when monocle/deck/vdeck layout is active, sh
 - **Launcher buttons**: fuzzel (app launcher), alacritty (terminal), nautilus (file manager)
 - **System panel**: clock, system tray, CPU, memory, disk, network, battery, pulseaudio, bluetooth
 
+## Polling
+
+- **Indexer daemon** (`indexer.sh`): polls `mmsg` every 1 second to rebuild the window list
+- **Window slot modules** (`window1`–`window10`): poll `fetchwindow.sh` every 1.5 seconds for title updates
+- **Daemon module** (`custom/daemon`): triggers the indexer on each poll cycle
+
 ## Behavior
 
 - 3 Waybar instances run simultaneously for DP-1, DP-3, and HDMI-A-1

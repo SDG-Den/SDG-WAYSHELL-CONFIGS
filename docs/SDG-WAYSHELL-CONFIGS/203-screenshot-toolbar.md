@@ -35,6 +35,10 @@ Top-center overlay toolbar with 7 buttons for screenshot capture across 3 output
 | Clipboard | Copy to clipboard via `wl-copy` |
 | Editor | Open captured image in editor app |
 
+## State
+
+Mode, save directory, and editor preference persist across sessions in `~/.config/screenshot.state`.
+
 ## Dependencies
 
 - `grim` — screenshot capture
