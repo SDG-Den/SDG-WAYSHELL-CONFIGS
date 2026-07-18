@@ -17,7 +17,7 @@ window#waybar {
 #custom-ss-settings {
     background-color: @surface_container;
     color: @primary;
-    font-size: 16px;
+    font-size: 95%;
     padding: 4px 10px 6px;
     border-color: @primary;
     border-style: solid;

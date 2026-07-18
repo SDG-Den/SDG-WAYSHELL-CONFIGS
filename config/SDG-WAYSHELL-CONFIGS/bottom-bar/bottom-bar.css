@@ -26,7 +26,7 @@ window#waybar {
 #custom-cap {
     background-color: @surface_container;
     color: @primary;
-    font-size: 14px;
+    font-size: 95%;
     padding: 4px 8px 6px;
     border-color: @primary;
     border-style: solid;
@@ -41,7 +41,7 @@ window#waybar {
 #custom-elevated-5 {
     background-color: @surface_container;
     color: @error;
-    font-size: 14px;
+    font-size: 95%;
     padding: 4px 8px 6px;
     border-color: @error;
     border-style: solid;
@@ -89,7 +89,7 @@ window#waybar {
 #custom-focused-cap {
     background-color: @surface_container;
     color: @primary;
-    font-size: 14px;
+    font-size: 95%;
     padding: 4px 8px 6px;
     border-color: @primary;
     border-style: solid;

@@ -14,7 +14,7 @@ window#waybar {
 #custom-brightness-icon {
     background-color: @surface_container;
     color: @primary;
-    font-size: 12px;
+    font-size: 25px;
 }
 
 #custom-brightness-up,
