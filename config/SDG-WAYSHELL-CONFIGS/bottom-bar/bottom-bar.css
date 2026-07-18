@@ -45,7 +45,9 @@ window#waybar {
 
 #custom-elevated-pin {
     border-left-width: 2px;
-    border-radius: var(--theme-radius, 10px) 0 0 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 #custom-elevated-1 {
@@ -54,7 +56,9 @@ window#waybar {
 
 #custom-cap {
     border-right-width: 2px;
-    border-radius: 0 var(--theme-radius, 10px) 0 0;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 #custom-elevated-pin:hover,
@@ -89,12 +93,16 @@ window#waybar {
 
 #custom-focused-pin {
     border-left-width: 2px;
-    border-radius: var(--theme-radius, 10px) 0 0 0;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 #custom-focused-cap {
     border-right-width: 2px;
-    border-radius: 0 var(--theme-radius, 10px) 0 0;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 #custom-focused-pin:hover,

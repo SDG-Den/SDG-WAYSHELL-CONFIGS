@@ -27,7 +27,8 @@ window#waybar {
 #custom-brightness-up {
     padding: 4px 6px;
     border-width: 2px 2px 0 2px;
-    border-radius: var(--theme-radius, 10px) var(--theme-radius, 10px) 0 0;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 #custom-brightness-bar {
@@ -39,12 +40,12 @@ window#waybar {
 #custom-brightness-down {
     padding: 4px 6px;
     border-width: 0 2px 2px 2px;
-    border-radius: 0 0 var(--theme-radius, 10px) var(--theme-radius, 10px);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
 
 #custom-brightness-icon {
     padding: 4px 6px;
     border: 2px solid @primary;
-    border-radius: var(--theme-radius, 10px);
     margin-top: 6px;
 }
