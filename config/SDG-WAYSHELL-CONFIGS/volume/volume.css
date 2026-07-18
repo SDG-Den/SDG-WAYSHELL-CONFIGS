@@ -1,6 +1,6 @@
 @import "../colors.css";
 @import "../theme-overrides.css";
-@import "../font-override.css";
+
 
 window#waybar {
     background: transparent;
@@ -14,8 +14,7 @@ window#waybar {
 #custom-volume-icon {
     background-color: @surface_container;
     color: @primary;
-    font-size: 90%;
-
+    font-size: 12px;
 }
 
 #custom-volume-up,

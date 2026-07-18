@@ -26,12 +26,13 @@ window#waybar {
 #custom-cap {
     background-color: @surface_container;
     color: @primary;
-    font-size: 95%;
+    font-size: 14px;
     padding: 4px 8px 6px;
     border-color: @primary;
     border-style: solid;
     border-width: 2px 1px 0;
     min-width: 20px;
+    font-size: 200%;
 }
 
 #custom-elevated-1,
@@ -41,7 +42,7 @@ window#waybar {
 #custom-elevated-5 {
     background-color: @surface_container;
     color: @error;
-    font-size: 95%;
+    font-size: 14px;
     padding: 4px 8px 6px;
     border-color: @error;
     border-style: solid;
@@ -89,7 +90,7 @@ window#waybar {
 #custom-focused-cap {
     background-color: @surface_container;
     color: @primary;
-    font-size: 95%;
+    font-size: 14px;
     padding: 4px 8px 6px;
     border-color: @primary;
     border-style: solid;
@@ -108,6 +109,7 @@ window#waybar {
     border-top-right-radius: 0px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    font-size: 200%;
 }
 
 #custom-focused-cap {
@@ -115,6 +117,7 @@ window#waybar {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    font-size: 200%;
 }
 
 #custom-focused-pin:hover,
