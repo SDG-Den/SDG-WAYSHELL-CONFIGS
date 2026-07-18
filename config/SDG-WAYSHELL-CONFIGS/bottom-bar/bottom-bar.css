@@ -96,6 +96,12 @@ window#waybar {
     min-width: 20px;
 }
 
+#custom-focused-cpu,
+#custom-focused-mem,
+#custom-focused-fps {
+    border-radius: 0px;
+}
+
 #custom-focused-pin {
     border-left-width: 2px;
     border-top-right-radius: 0px;
